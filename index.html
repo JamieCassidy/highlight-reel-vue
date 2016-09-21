@@ -7,6 +7,16 @@
     <div id="vue-dribbble">
       <h1>My app</h1>
       <highlight-reel dribbble-username="JamieCassidy"></highlight-reel>
+      <template id="highlight-reel">
+        <ul>
+          <li v-for="shot in shots">
+            <a v-bind:href="shot.html_url">
+              <h1>{{ shot.title }}</h1>
+              <img v-bind:src="shot.images.teaser" alt="{{ shot.title }}" />
+            </a>
+          </li>
+        </ul>
+      </template>
     </div>
     <script src="build/build.js"></script>
   </body>

@@ -1,5 +1,8 @@
-var css = require("./scss/application.scss");
+var css = require("../scss/application.scss");
 var Vue = require('vue');
+var Utils = require('./helpers/utils');
+
+var forEach = Utils.forEach;
 
 
 Vue.component('highlight-reel', {
@@ -43,7 +46,9 @@ Vue.component('highlight-reel', {
 
     getShots: function(response) {
       this.shots = response;
-      console.log(response);
+      forEach(this.shots, function(shot) {
+        console.log(shot);
+      });
     }
   }
 });
