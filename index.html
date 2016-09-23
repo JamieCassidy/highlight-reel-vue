@@ -4,20 +4,9 @@
     <title>Vue Dribbble Example</title>
   </head>
   <body>
-    <div id="vue-dribbble">
-      <h1>My app</h1>
-      <highlight-reel dribbble-username="JamieCassidy"></highlight-reel>
-      <template id="highlight-reel">
-        <ul>
-          <li v-for="shot in shots">
-            <a v-bind:href="shot.html_url">
-              <h1>{{ shot.title }}</h1>
-              <img v-bind:src="shot.images.normal" alt="{{ shot.title }}" />
-            </a>
-          </li>
-        </ul>
-      </template>
-    </div>
+    <alert type="success"><strong>Good job</strong>. Your account as updated successfully.</alert>
+    <alert type="error"><strong>Good job</strong>. Your account as updated successfully.</alert>
+    <alert><strong>Good job</strong>. Your account as updated successfully.</alert>
     <script src="build/build.js"></script>
   </body>
 </html>

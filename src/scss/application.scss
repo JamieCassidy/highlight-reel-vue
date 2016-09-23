@@ -1,0 +1,32 @@
+body {
+  font-family: Gotham, verdana, sans-serif;
+  font-size: 16px;
+  line-height: 24px;
+}
+
+.alert {
+  background: #ddd;
+  border: 1px solid darken(#ddd, 20%);
+  padding: 1em;
+  position: relative;
+}
+
+.alert-success {
+  background: lighten(green, 70%);
+  border: 1px solid lighten(green, 30%);
+  color: green;
+}
+
+.alert-error {
+  background: lighten(red, 45%);
+  border: solid 1px lighten(red, 30%);
+  color: red;
+}
+
+.alert-close {
+  position: absolute;
+  top: 1em;
+  right: 1em;
+  font-weight: bold;
+  cursor: pointer;
+}
