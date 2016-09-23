@@ -39,19 +39,19 @@
 
     &-success {
       background: lighten(green, 70%);
-      border: 1px solid lighten(green, 30%);
+      border: solid 1px green;
       color: green;
     }
 
     &-error {
       background: lighten(red, 45%);
-      border: solid 1px lighten(red, 30%);
+      border: solid 1px red;
       color: red;
     }
 
     &-info {
       background: lighten(#00a1e0, 50%);
-      border: solid 1px lighten(#00a1e0, 10%);
+      border: solid 1px #00a1e0;
       color: #00a1e0;
     }
   }

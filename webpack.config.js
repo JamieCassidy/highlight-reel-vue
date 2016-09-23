@@ -8,14 +8,6 @@ module.exports = {
   module: {
     loaders: [
       {
-        test: /\.scss$/,
-        loaders: ["style", "css", "sass"]
-      },
-      {
-        test: /\.html$/,
-        loader: "html"
-      },
-      {
         test: /\.vue$/,
         loader: "vue"
       }
