@@ -1,9 +1,7 @@
 var css = require("../scss/application.scss");
 var Vue = require('vue');
 var Utils = require('./helpers/utils');
-
 var forEach = Utils.forEach;
-
 
 Vue.component('highlight-reel', {
   template: '#highlight-reel',
@@ -17,6 +15,7 @@ Vue.component('highlight-reel', {
 
   created: function() {
     var requestURL = 'https://api.dribbble.com/v1/users/' + this.dribbbleUsername + '/shots?access_token=75c7d4e3de51b464f3eedee1e2e8ce0a7a4d9becac21696d675ee57c35d14098';
+    //cache this.
     this.requestShots(requestURL);
   },
 
@@ -24,7 +23,10 @@ Vue.component('highlight-reel', {
     requestShots: function(requestURL) {
       var self = this;
       this.getJSON(requestURL, function(response) {
-        self.getShots(response);
+        forEach(response, function(shot) {
+          console.log(shot);
+        });
+        self.shots = response;
       })
     },
 
@@ -42,13 +44,6 @@ Vue.component('highlight-reel', {
       }
 
       request.send();
-    },
-
-    getShots: function(response) {
-      this.shots = response;
-      forEach(this.shots, function(shot) {
-        console.log(shot);
-      });
     }
   }
 });
