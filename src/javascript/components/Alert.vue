@@ -1,14 +1,25 @@
 <template>
-  <div class="alert alert-{{ type }}"  v-show="show">
+  <div class="alert alert-{{ type }}"
+    v-show="show"
+    transition="fade">
     <slot></slot>
-    <span class="alert-close" @click="show = false">x</span>
+    <span class="alert-close"
+      @click="show = false"
+      v-show="important">
+      x
+    </span>
   </div>
 </template>
 
 <script>
   export default {
     props: {
-      type: { default: 'info' }
+      type: { default: 'info' },
+      timeout: { default: 3000 },
+      important: {
+        type: Boolean,
+        default: false
+      }
     },
 
     data() {
@@ -16,10 +27,12 @@
     },
 
     ready() {
-      setTimeout(
-        () => this.show = false,
-        5000
-      );
+      if(!this.important) {
+        setTimeout(
+          () => this.show = false,
+          this.timeout
+        );
+      }
     }
   }
 </script>
@@ -62,5 +75,13 @@
     right: 1em;
     font-weight: bold;
     cursor: pointer;
+  }
+
+  .fade-transition{
+    transition: opacity .4s ease;
+  }
+
+  .fade-leave {
+    opacity: 0;
   }
 </style>
